@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.abc.org/cmpinfo"
+           xmlns:tns="http://www.abc.org/cmpinfo"
+           elementFormDefault="qualified">
+
+    <!-- Request Element -->
+    <xs:element name="GetCompanyDetailRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="companyId" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Response Element -->
+    <xs:element name="GetCompanyDetailResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="company" type="tns:Company"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Company Complex Type -->
+    <xs:complexType name="Company">
+        <xs:sequence>
+            <xs:element name="companyId" type="xs:string"/>
+            <xs:element name="companyName" type="xs:string"/>
+            <xs:element name="industry" type="xs:string"/>
+            <xs:element name="location" type="xs:string"/>
+            <xs:element name="employeeCount" type="xs:int"/>
+            <xs:element name="website" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="jobOpenings" type="xs:int"/>
+            <xs:element name="established" type="xs:int"/>
+            <xs:element name="contactEmail" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Error Response Element -->
+    <xs:element name="GetCompanyDetailError">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="errorCode" type="xs:string"/>
+                <xs:element name="errorMessage" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
+
